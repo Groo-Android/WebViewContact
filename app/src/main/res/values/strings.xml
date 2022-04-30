@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">WebViewContact</string>
+    <string name="et_hint_num">숫자를 입력하세요</string>
+    <string name="btn_add">더하기 100</string>
+    <string name="btn_sub">빼기 25</string>
+    <string name="btn_multi">곱하기 6</string>
+    <string name="btn_div">나누기 48</string>
+    <string name="calculate_rules">입력한 숫자가 아래에서 선택한 버튼에 따라 값이 계산되어 화면에 표시됩니다.</string>
 </resources>
