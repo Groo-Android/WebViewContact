@@ -28,14 +28,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClickBtn(view: View) {
-        if (binding.etNum.text.isBlank() || binding.etNum.text.toString() == "0") return
-
-        val value = binding.etNum.text.toString().toInt()
-        when (view.id) {
-            R.id.btn_add -> calculateJsInterface.sendCalculateResult(value + 100)
-            R.id.btn_sub -> calculateJsInterface.sendCalculateResult(value - 25)
-            R.id.btn_multi -> calculateJsInterface.sendCalculateResult(value * 6)
-            R.id.btn_div -> calculateJsInterface.sendCalculateResult(value / 40)
+        binding.etNum.text.toString().takeIf { it.isNotBlank() && (it == "0").not() }?.run {
+            val value = this.toInt()
+            when (view.id) {
+                R.id.btn_add -> calculateJsInterface.sendCalculateResult(value + 100)
+                R.id.btn_sub -> calculateJsInterface.sendCalculateResult(value - 25)
+                R.id.btn_multi -> calculateJsInterface.sendCalculateResult(value * 6)
+                R.id.btn_div -> calculateJsInterface.sendCalculateResult(value / 40)
+            }
         }
     }
 

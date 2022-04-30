@@ -12,9 +12,9 @@ import kr.groo.android.webviewcontact.webview.base.BaseJsInterface
  * @since 2022/04/30
  */
 class CalculateJsInterface(
-    private val context: Context,
-    private val webView: WebView
-) : BaseJsInterface(context, webView) {
+    private val context: Context? = null,
+    private val webView: WebView? = null
+) : BaseJsInterface() {
 
     override fun getAccessName(): String = "Android"
 
@@ -23,7 +23,7 @@ class CalculateJsInterface(
      */
     @JavascriptInterface
     fun explainTheRules() {
-        Toast.makeText(context, context.getString(R.string.calculate_rules), Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, context?.getString(R.string.calculate_rules), Toast.LENGTH_SHORT).show()
     }
 
     /**
@@ -31,6 +31,6 @@ class CalculateJsInterface(
      */
     @JavascriptInterface
     fun sendCalculateResult(value: Int) {
-        webView.loadUrl("javascript:sendCalculateResult($value);")
+        webView?.loadUrl("javascript:sendCalculateResult($value);")
     }
 }
